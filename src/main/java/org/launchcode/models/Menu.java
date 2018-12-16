@@ -23,5 +23,7 @@ public class Menu {
     @ManyToMany
     private List<Cheese> cheeses;
 
-
+    public int getId(){
+        return id;
+    }
 }
