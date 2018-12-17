@@ -26,4 +26,30 @@ public class Menu {
     public int getId(){
         return id;
     }
+    public void setId(int id){
+        this.id = id;
+    }
+
+    public String getName(){
+        return name;
+    }
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public List<Cheese> getCheeses(){
+        return cheeses;
+    }
+
+    public void addItem(Cheese item){
+
+    }
+
+    public Menu(){}//empty constructor
+
+    public Menu(String name){
+        this.name = name;
+    }
+
+
 }
