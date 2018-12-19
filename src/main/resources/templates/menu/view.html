@@ -6,7 +6,7 @@
 
         <h1 th:text="${title}">Default Title</h1>
 
-        <nav th:replace="fragments :: navigation"></nav>
+        <!--<nav th:replace="fragments :: navigation"></nav>-->
 
         <ul>
             <li th:each="cheese : ${cheeses}" th:text="${cheese.name}"></li>
@@ -14,8 +14,10 @@
         </ul>
 
         <p th:unless="${cheeses.size()}">No cheeses added yet</p>
-        <p><a href="'menu/addIemt/' + ${menuId}"></a>Add cheese</p>
 
-
+        <p>
+            <a th:href="'/menu/add-item/' + ${menuId}">Add cheese</a> |
+            <a href="/menu">Cancel</a>
+        </p>
     </body>
 </html>

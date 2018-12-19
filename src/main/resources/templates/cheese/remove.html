@@ -5,7 +5,7 @@
 
 <h1 th:text="${title}">Default Title</h1>
 
-<nav th:replace="fragments :: navigation"></nav>
+<!--<nav th:replace="fragments :: navigation"></nav>-->
 
 <form method="post">
 
@@ -16,6 +16,7 @@
     </div>
 
     <input type="submit" value="Remove Cheese" />
+    <a href="/cheese" style="margin-left:20px">Cancel</a>
 </form>
 
 </body>

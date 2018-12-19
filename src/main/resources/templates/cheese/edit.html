@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+
+<!--<nav th:replace="fragments :: navigation"></nav>-->
+<p th:unless="${cheese}">No cheese found :(</p>
+<form method="post" action="/cheese/edit" style="max-width:600px;" th:if="${cheese}">
+    <div class="form-group">
+        <label>Name</label>
+        <input class="form-control"  name="name" th:value="${cheese.name}" />
+
+    </div>
+    <div class="form-group">
+        <label>Description</label>
+        <input class="form-control" name="description" th:value="${cheese.description}" />
+
+    </div>
+
+    <input type="submit" value="Save Cheese" />
+    <a href="/cheese" style="margin-left:20px">Cancel</a>
+
+    <input type="hidden" th:value="${cheese.id}" name="cheeseId" />
+</form>
+
+</body>
+</html>

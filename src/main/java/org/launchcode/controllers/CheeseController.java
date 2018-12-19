@@ -9,10 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.Errors;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -64,6 +61,26 @@ public class CheeseController {
         newCheese.setCategory(cat);
         cheeseDao.save(newCheese);
         return "redirect:";
+    }
+// to edit the cheese name and description creating blow handler
+    @RequestMapping(value = "edit/{id}", method = RequestMethod.GET)
+    public String displayEditForm(Model model, @PathVariable int id){
+        System.out.println("cheese/edit/"+id);
+        Cheese cheeseObject = cheeseDao.findOne(id);
+        model.addAttribute("title", "Edit Cheese");
+        model.addAttribute("cheese",cheeseObject);
+        return "cheese/edit";
+    }
+
+    @RequestMapping(value = "edit", method = RequestMethod.POST)
+    public String processEditForm(int cheeseId, String name, String description){
+
+        Cheese editedCheese = cheeseDao.findOne(cheeseId);
+        editedCheese.setName(name);
+        editedCheese.setDescription(description);
+        cheeseDao.save(editedCheese);
+
+        return "redirect:/cheese";
     }
 
     @RequestMapping(value = "remove", method = RequestMethod.GET)

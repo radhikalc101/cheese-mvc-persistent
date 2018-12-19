@@ -5,7 +5,7 @@
 
 <body class="container">
 <h1 th:text="${title}">Default Title</h1>
-<nav th:repalce="fragments :: navigation"></nav>
+<!--<nav th:repalce="fragments :: navigation"></nav>-->
 
 <form method="post" style="max-windth:600px;" th:object="${category}">
     <div class="form-group">
@@ -14,6 +14,7 @@
         <span th:errors="*{name}" class="error"></span>
     </div>
     <input type="submit" value="Add category"/>
+    <a href="/category" style="margin-left:20px">Cancel</a>
 </form>
 </body>
 </html>
